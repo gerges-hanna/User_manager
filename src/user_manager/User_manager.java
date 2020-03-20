@@ -16,7 +16,15 @@ public class User_manager {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("test");
+        //GROUPS g=new GROUPS("gro1");
+        //g.DeleteGroup();
+        //g.ShowGroups();
+        //USERS u=new USERS("test", "123456", "123456", "test", "6", "01662", "032151", "no");
+       // u.AddUser();  
+       //u.changePass();
+        //GROUPS s=new GROUPS("test");
+       //s.ShowGroups();
+       //s.DeleteGroup();
     }
     
 }

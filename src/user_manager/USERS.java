@@ -10,25 +10,26 @@ package user_manager;
  * @author bebo
  */
 public class USERS {
+    
+    //Created by bebo Ra2fat
     MAINCORE Z=new MAINCORE();
        private String UserName;
-       private String Pw;
+       private String Pw ;
        private String ConPw;
-       private String FullName ;
+       private String FullName;
        private String RoomNumber;
        private String WorkPhone;
        private String HomePhone;
        private String Other;
-       private String AddUserQuery="echo -e "+getPw()+"\n"+getConPw()+"\n"
-                                      +getFullName()+"\n"
-                                      +getRoomNumber()+"\n"
-                                      +getWorkPhone()+"\n"
-                                      +getHomePhone()+"\n"
-                                      +getOther()+"|sudo -S adduser "+getUserName();
        
        
        
-      private String DeleteUserQuery="sudo -S deluser "+getUserName();
+      
+
+    public USERS() {
+        
+    }
+      
        //Create constructor
        public USERS(String UserName,String Pw,String ConPw,String FullName,String RoomNumber,String WorkPhone,String HomePhone,String Other)
        {
@@ -40,6 +41,7 @@ public class USERS {
            this.WorkPhone=WorkPhone;
            this.HomePhone=HomePhone;
            this.Other=Other;
+           
        }
 
     public String getUserName() {
@@ -106,11 +108,34 @@ public class USERS {
         this.Other = Other;
     }
 
+    //Function Created Bebo
+   //Sting Updated by Gerges 
     
    public void AddUser(){
+
+       
+       String AddUserQuery="echo -e "+this.getPw()+"\"\\n\""+this.getConPw()+"\"\\n\""+getFullName()+"\"\\n\""+getRoomNumber()+"\"\\n\""+getWorkPhone()+"\"\\n\""+getHomePhone()+"\"\\n\""+getOther()+"|sudo -S adduser "+this.getUserName() ;
        Z.terminalQuery(AddUserQuery);
    }
      public void DeleteUser(){
+       String DeleteUserQuery="sudo -S deluser "+getUserName();
        Z.terminalQuery(DeleteUserQuery);
    }
+     
+     //Created by gerges
+     
+     public void changeInfo()
+     {
+       String inf="sudo chfn -f "+getFullName()+" -h "+getHomePhone()+" -r "+getRoomNumber()+" -o "+getOther()+" -w "+getWorkPhone()+" "+getUserName();
+       Z.terminalQuery(inf);
+     }
+     public void changePass()
+     {
+         String cahnge="echo -e "+this.getPw()+"\"\\n\""+this.getConPw()+"|sudo passwd "+getUserName();
+         Z.terminalQuery(cahnge);
+     }
+     public void ShowUsers()
+    {
+        Z.terminalQuery("less /etc/passwd");
+    }
 }
