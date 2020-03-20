@@ -17,15 +17,15 @@ public class GROUPS {
     
     
     MAINCORE Z=new MAINCORE();
- public void AddGroup()
+ public String AddGroup()
  {
      String addquery="sudo -S addgroup "+getGroupName();
-     Z.terminalQuery(addquery);
+     return Z.terminalQuery(addquery);
  }
- public void DeleteGroup()
+ public String DeleteGroup()
  {
      String delquery="sudo -S delgroup "+getGroupName();
-     Z.terminalQuery(delquery);
+    return Z.terminalQuery(delquery);
  }
  
  
@@ -48,13 +48,13 @@ public class GROUPS {
     }
     
     // Created By Gerges
-    public void AddUserInGroup(String groups,String user){
+    public String AddUserInGroup(String groups,String user){
      String AddUserInGroupQuery="sudo usermod -a -G "+groups+" "+user;
-     Z.terminalQuery(AddUserInGroupQuery);
+     return Z.terminalQuery(AddUserInGroupQuery);
     }
-    public void ShowGroups()
+    public String ShowGroups()
     {
-        Z.terminalQuery("less /etc/group");
+        return Z.terminalQuery("less /etc/group");
     }
     
          

@@ -111,31 +111,31 @@ public class USERS {
     //Function Created Bebo
    //Sting Updated by Gerges 
     
-   public void AddUser(){
+   public String AddUser(){
 
        
        String AddUserQuery="echo -e "+this.getPw()+"\"\\n\""+this.getConPw()+"\"\\n\""+getFullName()+"\"\\n\""+getRoomNumber()+"\"\\n\""+getWorkPhone()+"\"\\n\""+getHomePhone()+"\"\\n\""+getOther()+"|sudo -S adduser "+this.getUserName() ;
-       Z.terminalQuery(AddUserQuery);
+       return Z.terminalQuery(AddUserQuery);
    }
-     public void DeleteUser(){
+     public String DeleteUser(){
        String DeleteUserQuery="sudo -S deluser "+getUserName();
-       Z.terminalQuery(DeleteUserQuery);
+       return Z.terminalQuery(DeleteUserQuery);
    }
      
      //Created by gerges
      
-     public void changeInfo()
+     public String changeInfo()
      {
        String inf="sudo chfn -f "+getFullName()+" -h "+getHomePhone()+" -r "+getRoomNumber()+" -o "+getOther()+" -w "+getWorkPhone()+" "+getUserName();
-       Z.terminalQuery(inf);
+       return Z.terminalQuery(inf);
      }
-     public void changePass()
+     public String changePass()
      {
          String cahnge="echo -e "+this.getPw()+"\"\\n\""+this.getConPw()+"|sudo passwd "+getUserName();
-         Z.terminalQuery(cahnge);
+         return Z.terminalQuery(cahnge);
      }
-     public void ShowUsers()
+     public String ShowUsers()
     {
-        Z.terminalQuery("less /etc/passwd");
+        return Z.terminalQuery("less /etc/passwd");
     }
 }
