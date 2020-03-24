@@ -34,7 +34,7 @@ public class Jgroup extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txt = new javax.swing.JTextField();
         addGroup = new javax.swing.JButton();
         deleteGroup = new javax.swing.JButton();
         addUserInGroup = new javax.swing.JButton();
@@ -74,9 +74,9 @@ public class Jgroup extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Group Name");
 
-        jTextField1.setBackground(new java.awt.Color(153, 153, 153));
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
+        txt.setBackground(new java.awt.Color(153, 153, 153));
+        txt.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        txt.setForeground(new java.awt.Color(255, 255, 255));
 
         addGroup.setBackground(new java.awt.Color(153, 153, 153));
         addGroup.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
@@ -131,7 +131,7 @@ public class Jgroup extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel2)
                         .addGap(37, 37, 37)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,7 +146,7 @@ public class Jgroup extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(79, 79, 79)
                 .addComponent(addGroup)
@@ -180,6 +180,7 @@ public class Jgroup extends javax.swing.JFrame {
 
     private void addGroupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addGroupActionPerformed
         // TODO add your handling code here:
+        /*to magdy*/gp.setGroupName(txt.getText().trim());
         gp.AddGroup();
     }//GEN-LAST:event_addGroupActionPerformed
 
@@ -237,6 +238,6 @@ public class Jgroup extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txt;
     // End of variables declaration//GEN-END:variables
 }
