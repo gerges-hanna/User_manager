@@ -10,12 +10,15 @@ import user_manager.*;
  *
  * @author user
  */
+
+
 public class Jgroup extends javax.swing.JFrame {
 
     /**
      * Creates new form Jgroup
      */
     GROUPS gp = new GROUPS();
+     
     
     public Jgroup() {
         initComponents();
@@ -38,13 +41,15 @@ public class Jgroup extends javax.swing.JFrame {
         addGroup = new javax.swing.JButton();
         deleteGroup = new javax.swing.JButton();
         addUserInGroup = new javax.swing.JButton();
+        showGroups = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        setSize(new java.awt.Dimension(900, 450));
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -67,20 +72,24 @@ public class Jgroup extends javax.swing.JFrame {
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 51));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Group Name");
 
-        txt.setBackground(new java.awt.Color(153, 153, 153));
         txt.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        txt.setForeground(new java.awt.Color(255, 255, 255));
+        txt.setForeground(new java.awt.Color(153, 153, 153));
+        txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtActionPerformed(evt);
+            }
+        });
 
-        addGroup.setBackground(new java.awt.Color(153, 153, 153));
+        addGroup.setBackground(new java.awt.Color(255, 255, 255));
         addGroup.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        addGroup.setForeground(new java.awt.Color(0, 255, 255));
+        addGroup.setForeground(new java.awt.Color(51, 51, 255));
         addGroup.setText("Add Group");
         addGroup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,9 +97,9 @@ public class Jgroup extends javax.swing.JFrame {
             }
         });
 
-        deleteGroup.setBackground(new java.awt.Color(153, 153, 153));
+        deleteGroup.setBackground(new java.awt.Color(255, 255, 255));
         deleteGroup.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        deleteGroup.setForeground(new java.awt.Color(0, 255, 255));
+        deleteGroup.setForeground(new java.awt.Color(51, 51, 255));
         deleteGroup.setText("Delete Group");
         deleteGroup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,9 +107,9 @@ public class Jgroup extends javax.swing.JFrame {
             }
         });
 
-        addUserInGroup.setBackground(new java.awt.Color(153, 153, 153));
+        addUserInGroup.setBackground(new java.awt.Color(255, 255, 255));
         addUserInGroup.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        addUserInGroup.setForeground(new java.awt.Color(0, 255, 255));
+        addUserInGroup.setForeground(new java.awt.Color(51, 51, 255));
         addUserInGroup.setText("Add User In Group");
         addUserInGroup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,71 +117,73 @@ public class Jgroup extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Group Name", "Users"
+        showGroups.setBackground(new java.awt.Color(255, 255, 255));
+        showGroups.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        showGroups.setForeground(new java.awt.Color(51, 51, 255));
+        showGroups.setText("ShowGroups");
+        showGroups.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showGroupsActionPerformed(evt);
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        });
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setSelectedTextColor(new java.awt.Color(204, 204, 204));
+        jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)
-                        .addGap(37, 37, 37)
-                        .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(deleteGroup)
-                            .addComponent(addGroup)
-                            .addComponent(addUserInGroup))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(addGroup)
+                .addGap(48, 48, 48)
+                .addComponent(deleteGroup)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(addUserInGroup)
+                .addGap(42, 42, 42)
+                .addComponent(showGroups)
+                .addGap(41, 41, 41))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(79, 79, 79)
-                .addComponent(addGroup)
-                .addGap(84, 84, 84)
-                .addComponent(deleteGroup)
-                .addGap(68, 68, 68)
-                .addComponent(addUserInGroup)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 176, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
+                    .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addGroup)
+                    .addComponent(deleteGroup)
+                    .addComponent(addUserInGroup)
+                    .addComponent(showGroups))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -180,18 +191,30 @@ public class Jgroup extends javax.swing.JFrame {
 
     private void addGroupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addGroupActionPerformed
         // TODO add your handling code here:
-        /*to magdy*/gp.setGroupName(txt.getText().trim());
+        gp.setGroupName(txt.getText().trim());
         gp.AddGroup();
     }//GEN-LAST:event_addGroupActionPerformed
 
     private void deleteGroupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteGroupActionPerformed
         // TODO add your handling code here:
+        gp.setGroupName(txt.getText().trim());
         gp.DeleteGroup();
     }//GEN-LAST:event_deleteGroupActionPerformed
 
     private void addUserInGroupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserInGroupActionPerformed
         // TODO add your handling code here:
+        
+       
     }//GEN-LAST:event_addUserInGroupActionPerformed
+
+    private void txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtActionPerformed
+
+    private void showGroupsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showGroupsActionPerformed
+        // TODO add your handling code here:
+        gp.ShowGroups();
+    }//GEN-LAST:event_showGroupsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,7 +249,9 @@ public class Jgroup extends javax.swing.JFrame {
                 new Jgroup().setVisible(true);
             }
         });
+        
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addGroup;
@@ -237,7 +262,8 @@ public class Jgroup extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton showGroups;
     private javax.swing.JTextField txt;
     // End of variables declaration//GEN-END:variables
 }
