@@ -18,6 +18,7 @@ public class Jgroup extends javax.swing.JFrame {
      * Creates new form Jgroup
      */
     GROUPS gp = new GROUPS();
+    USERS usr = new USERS();
      
     
     public Jgroup() {
@@ -44,9 +45,11 @@ public class Jgroup extends javax.swing.JFrame {
         showGroups = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
+        username = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
         setSize(new java.awt.Dimension(900, 450));
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
@@ -128,31 +131,55 @@ public class Jgroup extends javax.swing.JFrame {
         });
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         jTextArea1.setRows(5);
         jTextArea1.setSelectedTextColor(new java.awt.Color(204, 204, 204));
         jScrollPane1.setViewportView(jTextArea1);
+
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("USername");
+
+        username.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        username.setForeground(new java.awt.Color(153, 153, 153));
+        username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("*used to add user in group*");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(addGroup)
+                .addGap(95, 95, 95)
+                .addComponent(deleteGroup)
+                .addGap(72, 72, 72)
+                .addComponent(addUserInGroup)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(showGroups)
+                .addGap(41, 41, 41))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(addGroup)
-                .addGap(48, 48, 48)
-                .addComponent(deleteGroup)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(addUserInGroup)
-                .addGap(42, 42, 42)
-                .addComponent(showGroups)
-                .addGap(41, 41, 41))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(58, 58, 58)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(111, 111, 111))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,7 +187,10 @@ public class Jgroup extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addGap(46, 46, 46)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addGroup)
@@ -193,18 +223,23 @@ public class Jgroup extends javax.swing.JFrame {
         // TODO add your handling code here:
         gp.setGroupName(txt.getText().trim());
         gp.AddGroup();
+        
+        
     }//GEN-LAST:event_addGroupActionPerformed
 
     private void deleteGroupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteGroupActionPerformed
         // TODO add your handling code here:
         gp.setGroupName(txt.getText().trim());
         gp.DeleteGroup();
+        
+        
     }//GEN-LAST:event_deleteGroupActionPerformed
 
     private void addUserInGroupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserInGroupActionPerformed
         // TODO add your handling code here:
-        
-       
+        gp.setGroupName(txt.getText().trim());
+        usr.setUserName(username.getText().trim());
+        gp.AddUserInGroup(txt.getText().trim(), username.getText().trim());
     }//GEN-LAST:event_addUserInGroupActionPerformed
 
     private void txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtActionPerformed
@@ -216,6 +251,12 @@ public class Jgroup extends javax.swing.JFrame {
         gp.ShowGroups();
     }//GEN-LAST:event_showGroupsActionPerformed
 
+    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usernameActionPerformed
+
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -259,11 +300,14 @@ public class Jgroup extends javax.swing.JFrame {
     private javax.swing.JButton deleteGroup;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton showGroups;
     private javax.swing.JTextField txt;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

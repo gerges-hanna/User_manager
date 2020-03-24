@@ -69,7 +69,7 @@ public class Juser extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Group Page");
+        jLabel1.setText("User page");
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 51));
 
@@ -295,7 +295,7 @@ public class Juser extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(760, Short.MAX_VALUE))
+                .addContainerGap(778, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
@@ -361,7 +361,9 @@ public class Juser extends javax.swing.JFrame {
         // TODO add your handling code here:
         us.ShowUsers();
     }//GEN-LAST:event_ShowUsersActionPerformed
-
+    
+    
+    
     /**
      * @param args the command line arguments
      */
