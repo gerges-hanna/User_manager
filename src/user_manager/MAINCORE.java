@@ -14,8 +14,36 @@ import java.io.InputStreamReader;
  * @author bebo
  */
 public class MAINCORE {
+    public String back;
     //Class Created By Bebo Ra2fat And function by Gerges
-    public void terminalQuery(String query)
+    public String terminalQuery(String query)
+    {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        processBuilder.command("bash", "-c", "echo root| sudo -S ls ~/Desktop/ && "+query);
+        StringBuilder output = new StringBuilder();
+        back = null;
+        try {
+
+        Process process = processBuilder.start();
+
+        BufferedReader reader = new BufferedReader(
+        new InputStreamReader(process.getInputStream()));
+
+        String line;
+        while ((line = reader.readLine()) != null) {
+            back=back+line+"\n";
+            
+        }
+        
+        return back;
+        } catch (IOException e) {
+        e.printStackTrace();
+        return "Error";
+        }
+        
+    }
+        
+    /*public void terminalQuery(String query)
     {
         ProcessBuilder processBuilder = new ProcessBuilder();
         processBuilder.command("bash", "-c", "echo root| sudo -S ls ~/Desktop/ && "+query);
@@ -48,5 +76,5 @@ public class MAINCORE {
         } catch (InterruptedException e) {
         e.printStackTrace();
         }
-    }
+    }*/
 }
