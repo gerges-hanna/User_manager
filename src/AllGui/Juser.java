@@ -354,6 +354,15 @@ public class Juser extends javax.swing.JFrame {
     //add user
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        us.setPw(password.getText().trim());
+        us.setConPw(confirmPw.getText().trim());
+        us.setFullName(fullName.getText().trim());
+        us.setRoomNumber(roomName.getText().trim());
+        us.setWorkPhone(workPh.getText().trim());
+        us.setHomePhone(homePh.getText().trim());
+        us.setOther(other.getText().trim());
+        us.setUserName(username.getText().trim());
+        
         us.AddUser();
     }//GEN-LAST:event_jButton1ActionPerformed
     
