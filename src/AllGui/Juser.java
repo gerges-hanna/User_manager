@@ -19,7 +19,7 @@ public class Juser extends javax.swing.JFrame {
         initComponents();
     }
     
-    USERS us =new USERS();
+    /*tomagdy*/USERS us ;
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -354,6 +354,7 @@ public class Juser extends javax.swing.JFrame {
     //add user
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+       /*tomagdy*/ us=new USERS(username.getText().trim(),password.getText().trim(), confirmPw.getText().trim(), null, null, null, null, null);
         us.setPw(password.getText().trim());
         us.setConPw(confirmPw.getText().trim());
         us.setFullName(fullName.getText().trim());
@@ -362,6 +363,7 @@ public class Juser extends javax.swing.JFrame {
         us.setHomePhone(homePh.getText().trim());
         us.setOther(other.getText().trim());
         us.setUserName(username.getText().trim());
+        
         
         us.AddUser();
     }//GEN-LAST:event_jButton1ActionPerformed
