@@ -44,7 +44,7 @@ public class Jgroup extends javax.swing.JFrame {
         addUserInGroup = new javax.swing.JButton();
         showGroups = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        Area = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         username = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -130,11 +130,11 @@ public class Jgroup extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setSelectedTextColor(new java.awt.Color(204, 204, 204));
-        jScrollPane1.setViewportView(jTextArea1);
+        Area.setColumns(20);
+        Area.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
+        Area.setRows(5);
+        Area.setSelectedTextColor(new java.awt.Color(204, 204, 204));
+        jScrollPane1.setViewportView(Area);
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
@@ -197,8 +197,8 @@ public class Jgroup extends javax.swing.JFrame {
                     .addComponent(deleteGroup)
                     .addComponent(addUserInGroup)
                     .addComponent(showGroups))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -221,8 +221,9 @@ public class Jgroup extends javax.swing.JFrame {
 
     private void addGroupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addGroupActionPerformed
         // TODO add your handling code here:
+        gp =new GROUPS();
         gp.setGroupName(txt.getText().trim());
-        gp.AddGroup();
+        Area.setText(gp.AddGroup());
         
         
     }//GEN-LAST:event_addGroupActionPerformed
@@ -230,7 +231,7 @@ public class Jgroup extends javax.swing.JFrame {
     private void deleteGroupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteGroupActionPerformed
         // TODO add your handling code here:
         gp.setGroupName(txt.getText().trim());
-        gp.DeleteGroup();
+        Area.setText(gp.DeleteGroup());
         
         
     }//GEN-LAST:event_deleteGroupActionPerformed
@@ -239,7 +240,7 @@ public class Jgroup extends javax.swing.JFrame {
         // TODO add your handling code here:
         gp.setGroupName(txt.getText().trim());
         usr.setUserName(username.getText().trim());
-        gp.AddUserInGroup(txt.getText().trim(), username.getText().trim());
+        Area.setText(gp.AddUserInGroup(txt.getText().trim(), username.getText().trim()));
     }//GEN-LAST:event_addUserInGroupActionPerformed
 
     private void txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtActionPerformed
@@ -248,7 +249,7 @@ public class Jgroup extends javax.swing.JFrame {
 
     private void showGroupsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showGroupsActionPerformed
         // TODO add your handling code here:
-        gp.ShowGroups();
+        Area.setText(gp.ShowGroups());
     }//GEN-LAST:event_showGroupsActionPerformed
 
     private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
@@ -295,6 +296,7 @@ public class Jgroup extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea Area;
     private javax.swing.JButton addGroup;
     private javax.swing.JButton addUserInGroup;
     private javax.swing.JButton deleteGroup;
@@ -305,7 +307,6 @@ public class Jgroup extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton showGroups;
     private javax.swing.JTextField txt;
     private javax.swing.JTextField username;
