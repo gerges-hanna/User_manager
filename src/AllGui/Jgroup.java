@@ -5,6 +5,8 @@
  */
 package AllGui;
 
+import java.awt.Toolkit;
+import javax.swing.JFrame;
 import user_manager.*;
 /**
  *
@@ -23,6 +25,9 @@ public class Jgroup extends javax.swing.JFrame {
     
     public Jgroup() {
         initComponents();
+        this.setSize(1280, 720);
+        setLocationRelativeTo(null);
+        setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -165,9 +170,9 @@ public class Jgroup extends javax.swing.JFrame {
                 .addComponent(deleteGroup)
                 .addGap(72, 72, 72)
                 .addComponent(addUserInGroup)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(41, 41, 41)
                 .addComponent(showGroups)
-                .addGap(41, 41, 41))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
