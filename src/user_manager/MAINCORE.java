@@ -8,6 +8,7 @@ package user_manager;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,7 +23,7 @@ public class MAINCORE {
     public String terminalQuery(String query)
     {
         ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.command("bash", "-c", "echo root| sudo -S ls ~/Desktop/ && "+query);
+        processBuilder.command("bash", "-c", "echo root| sudo -S pwd && "+query);
         StringBuilder output = new StringBuilder();
         back = null;
         try {
@@ -33,18 +34,20 @@ public class MAINCORE {
         new InputStreamReader(process.getInputStream()));
 
         String line;
+        line = reader.readLine();
         while ((line = reader.readLine()) != null) {
             back=back+line+"\n";
             
         }
         
-        return back;
-        } catch (IOException e) {
-        e.printStackTrace();
-        return "Error";
+        return back.substring(4);
+        } catch (Exception e) {
+        return "Entry Wrong";
         }
         
     }
+    
+    
         
     /*public void terminalQuery(String query)
     {

@@ -356,7 +356,7 @@ public class Juser extends javax.swing.JFrame {
     private void changeInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeInfoActionPerformed
         // TODO add your handling code here:
         us = new USERS(Username.getText().trim(),Password.getText().trim(),ConPw.getText().trim(),FullName.getText().trim(),RoomNum.getText().trim(),WorkPh.getText().trim(),HomePh.getText().trim(),Other.getText().trim());
-        Area.setText(us.changeInfo()+"\nDone\n");
+        Area.setText(us.changeInfo()+"\n");
         Area.setText(Area.getText()+ us.ShowUsers());
     }//GEN-LAST:event_changeInfoActionPerformed
 
