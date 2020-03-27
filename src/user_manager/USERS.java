@@ -11,7 +11,7 @@ package user_manager;
  */
 public class USERS {
     
-    //Created by bebo Ra2fat
+    //Created by Abanoub Ra2fat
     MAINCORE Z=new MAINCORE();
        private String UserName;
        private String Pw ;
@@ -108,7 +108,7 @@ public class USERS {
         this.Other = Other;
     }
 
-    //Function Created Bebo
+    //Function Created Abanoub Ra2fat
    //Sting Updated by Gerges 
     
    public String AddUser(){

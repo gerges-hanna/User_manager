@@ -15,7 +15,10 @@ import java.io.InputStreamReader;
  */
 public class MAINCORE {
     public String back;
-    //Class Created By Bebo Ra2fat And function by Gerges
+    //Class Created By Abanoub Ra2fat  
+    
+    
+    // function Created by Gerges
     public String terminalQuery(String query)
     {
         ProcessBuilder processBuilder = new ProcessBuilder();

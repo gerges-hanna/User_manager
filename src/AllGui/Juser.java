@@ -10,13 +10,12 @@ import javax.swing.JFrame;
 import user_manager.*;
 /**
  *
- * @author user
+ * @author Abanoub Magdy
  */
+
+// This Gui Created by Abanoub Magdy
 public class Juser extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Juser
-     */
     
     user_manager.USERS us;
     

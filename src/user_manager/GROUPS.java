@@ -11,7 +11,7 @@ package user_manager;
  */
 public class GROUPS {
     
-    //Created By Bebo Ra2fat
+    //Created By Abanoub Ra2fat
      private String GroupName;
     
     

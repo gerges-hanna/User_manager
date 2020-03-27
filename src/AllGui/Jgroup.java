@@ -10,15 +10,13 @@ import javax.swing.JFrame;
 import user_manager.*;
 /**
  *
- * @author user
+ * @author Abanoub Magdy
  */
 
-
+// This Gui Created by Abanoub Magdy
 public class Jgroup extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Jgroup
-     */
+
     GROUPS gp = new GROUPS();
     USERS usr = new USERS();
      
