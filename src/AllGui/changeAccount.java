@@ -14,7 +14,7 @@ import user_manager.*;
 public class changeAccount extends javax.swing.JFrame {
 
     user_manager.USERS us;
-    
+    user_manager.ChangeAccount ch;
     
     public changeAccount() {
         initComponents();
@@ -52,7 +52,6 @@ public class changeAccount extends javax.swing.JFrame {
         minNumBetChange = new javax.swing.JTextField();
         maxNumBetChange = new javax.swing.JTextField();
         numOfDayBeforeExipre = new javax.swing.JTextField();
-        UserN = new javax.swing.JButton();
         passEx = new javax.swing.JButton();
         passIn = new javax.swing.JButton();
         accEx = new javax.swing.JButton();
@@ -105,7 +104,7 @@ public class changeAccount extends javax.swing.JFrame {
         jLabel5.setText("miniNumberBetChange");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel6.setText("numOfDayBeforePassExipre");
+        jLabel6.setText("warning before Exp");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel7.setText("maxiNumberBetChange");
@@ -127,34 +126,61 @@ public class changeAccount extends javax.swing.JFrame {
 
         numOfDayBeforeExipre.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
-        UserN.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        UserN.setText("UserN");
-        UserN.addActionListener(new java.awt.event.ActionListener() {
+        passEx.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        passEx.setText("passEx");
+        passEx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserNActionPerformed(evt);
+                passExActionPerformed(evt);
             }
         });
 
-        passEx.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        passEx.setText("passEx");
-
         passIn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         passIn.setText("passInactive");
+        passIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passInActionPerformed(evt);
+            }
+        });
 
         accEx.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         accEx.setText("accExipre");
+        accEx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accExActionPerformed(evt);
+            }
+        });
 
         minNum.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         minNum.setText("minNumber");
+        minNum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minNumActionPerformed(evt);
+            }
+        });
 
         maxNum.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         maxNum.setText("maxNumber");
+        maxNum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maxNumActionPerformed(evt);
+            }
+        });
 
         numBeforeEx.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        numBeforeEx.setText("numOfDayBefore");
+        numBeforeEx.setText("warning before Exp");
+        numBeforeEx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numBeforeExActionPerformed(evt);
+            }
+        });
 
         showChanges.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         showChanges.setText("showChanges");
+        showChanges.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showChangesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -162,128 +188,115 @@ public class changeAccount extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel4))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(passInactive)
+                                .addComponent(accExipre, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jlabel)
+                                .addComponent(jLabel2))
+                            .addGap(35, 35, 35)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(passExipre, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(UserN)
-                        .addGap(27, 27, 27)
                         .addComponent(passEx)
                         .addGap(26, 26, 26)
                         .addComponent(passIn)
                         .addGap(18, 18, 18)
                         .addComponent(accEx)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(4, 4, 4)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(minNumBetChange, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(maxNumBetChange, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(numOfDayBeforeExipre, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
                         .addComponent(minNum)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(maxNum)
                         .addGap(27, 27, 27)
                         .addComponent(numBeforeEx)
                         .addGap(27, 27, 27)
-                        .addComponent(showChanges)
-                        .addGap(131, 131, 131))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jlabel)
-                                            .addComponent(jLabel2))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(22, 22, 22)
-                                                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(18, 18, 18)
-                                                .addComponent(passExipre, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jLabel4))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(passInactive)
-                                            .addComponent(accExipre))))
-                                .addGap(83, 83, 83)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(numOfDayBeforeExipre))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addGap(32, 32, 32)
-                                        .addComponent(maxNumBetChange))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(minNumBetChange, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(79, 79, 79)
-                                .addComponent(clear)))
-                        .addGap(76, 76, 76))))
+                        .addComponent(showChanges)))
+                .addGap(98, 98, 98)
+                .addComponent(clear)
+                .addGap(36, 36, 36))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel5)
-                                .addComponent(minNumBetChange, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jlabel))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(passExipre, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(41, 41, 41)
-                                .addComponent(jLabel7))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(clear))))
-                    .addComponent(maxNumBetChange, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(numOfDayBeforeExipre, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
+                            .addComponent(jLabel1)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jlabel))
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(passExipre, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(passInactive, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(accExipre, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UserN)
-                    .addComponent(passEx)
-                    .addComponent(passIn)
-                    .addComponent(accEx)
-                    .addComponent(minNum)
-                    .addComponent(maxNum)
-                    .addComponent(numBeforeEx)
-                    .addComponent(showChanges))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(accExipre, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(109, 109, 109))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(minNumBetChange, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(41, 41, 41)
+                                .addComponent(jLabel7))
+                            .addComponent(maxNumBetChange, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(numOfDayBeforeExipre, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(74, 74, 74)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(clear)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(passEx)
+                                .addComponent(passIn)
+                                .addComponent(accEx)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(minNum)
+                                    .addComponent(maxNum)
+                                    .addComponent(numBeforeEx)
+                                    .addComponent(showChanges))))
+                        .addGap(48, 48, 48)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE))
         );
 
         pack();
@@ -313,10 +326,55 @@ public class changeAccount extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_passExipreActionPerformed
 
-    private void UserNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNActionPerformed
+    private void showChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showChangesActionPerformed
         // TODO add your handling code here:
+        ch=new ChangeAccount(username.getText().trim());
+        Area.setText(ch.ShowChanges());
         
-    }//GEN-LAST:event_UserNActionPerformed
+    }//GEN-LAST:event_showChangesActionPerformed
+
+    private void passInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passInActionPerformed
+        // TODO add your handling code here:
+        ch=new ChangeAccount(username.getText(),Integer.parseInt(passInactive.getText().trim()));
+        ch.inActive();
+        Area.setText(ch.ShowChanges());
+    }//GEN-LAST:event_passInActionPerformed
+
+    private void accExActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accExActionPerformed
+        // TODO add your handling code here:
+        ch=new ChangeAccount(username.getText());
+        ch.setDate(accExipre.getText().trim());
+        ch.accountExp();
+        Area.setText(ch.ShowChanges());
+    }//GEN-LAST:event_accExActionPerformed
+
+    private void minNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minNumActionPerformed
+        // TODO add your handling code here:
+        ch=new ChangeAccount(username.getText(),Integer.parseInt(minNumBetChange.getText().trim()));
+        ch.min();
+        Area.setText(ch.ShowChanges());
+    }//GEN-LAST:event_minNumActionPerformed
+
+    private void maxNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxNumActionPerformed
+        // TODO add your handling code here:
+        ch=new ChangeAccount(username.getText(),Integer.parseInt(maxNumBetChange.getText().trim()));
+        ch.max();
+        Area.setText(ch.ShowChanges());
+    }//GEN-LAST:event_maxNumActionPerformed
+
+    private void numBeforeExActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numBeforeExActionPerformed
+        // TODO add your handling code here:
+        ch=new ChangeAccount(username.getText(),Integer.parseInt(numOfDayBeforeExipre.getText().trim()));
+        ch.warningBeforeExp();
+        Area.setText(ch.ShowChanges());
+    }//GEN-LAST:event_numBeforeExActionPerformed
+
+    private void passExActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passExActionPerformed
+        // TODO add your handling code here:
+        ch=new ChangeAccount(username.getText(),Integer.parseInt(passExipre.getText().trim()));
+        ch.max();
+        Area.setText(ch.ShowChanges());
+    }//GEN-LAST:event_passExActionPerformed
 
     /**
      * @param args the command line arguments
@@ -355,7 +413,6 @@ public class changeAccount extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea Area;
-    private javax.swing.JButton UserN;
     private javax.swing.JButton accEx;
     private javax.swing.JTextField accExipre;
     private javax.swing.JButton clear;
