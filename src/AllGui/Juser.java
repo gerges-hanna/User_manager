@@ -444,7 +444,7 @@ public class Juser extends javax.swing.JFrame {
     private void changeaccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeaccountActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        new changeAccount().setVisible(true);
+        //new changeAccount().setVisible(true);
     }//GEN-LAST:event_changeaccountActionPerformed
     
     

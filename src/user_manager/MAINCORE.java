@@ -42,9 +42,8 @@ public class MAINCORE {
         
         return back.substring(4);
         } catch (Exception e) {
-        return "Entry Wrong";
         }
-        
+        return "";
     }
     
     
